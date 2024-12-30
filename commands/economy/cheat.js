@@ -1,6 +1,10 @@
 const UserProfile = require('../../schemas/UserProfile');
 const { ApplicationCommandOptionType } = require('discord.js');
 
+
+const jamesProfileId = "671078e6e394c05c6653e0bf";
+const jonProfileId = "67107de44f1077a37cc8314f";
+
 module.exports = {
 
     run: async({interaction}) => {
@@ -36,7 +40,7 @@ module.exports = {
                 await targetUserProfile.save();
             }
 
-            if(cheaterProfile.id != "671078e6e394c05c6653e0bf" && cheaterProfile.id != "67107de44f1077a37cc8314f") {
+            if(cheaterProfile.id != jamesProfileId && cheaterProfile.id != jonProfileId) {
                     cheaterProfile.balance -= 1;
                     await cheaterProfile.save();
                 interaction.editReply(`<@${cheaterUserId}> is trying to cheat! There's a $1 penalty for that`);
